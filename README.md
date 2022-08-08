@@ -40,7 +40,7 @@ For instance, field 3 is Mean Radius, field
 ## EDA - Exploratory data analysis ## 
 You can find all related EDA in my Github repository. <br />
 Apart from the basic Data analysis which includes pandas function such as: <br />
-1. value_counts for the label <br /> 
+1. value_counts for the label attribute <br /> 
 2. Statistical insight using the describe functions <br /> 
 3. finding strong postive and negative correlations using the corr() function <br />
 You can check out the extensive EDA report for this dataset which I have generated using the pandas-profiling library. (This is a ninja technique :P) <br />
@@ -48,6 +48,7 @@ You can check out the extensive EDA report for this dataset which I have generat
 
 
 ## Model Building ##
+After seperating the diagnosis column as the target/label, we seperate the dataset ub
 I also split the data into train and tests sets with a test size of 20%.
 
 I tried three different models and evaluated them using Mean Absolute Error. I chose MAE because it is relatively easy to interpret and outliers aren’t particularly bad in for this type of model.
