@@ -48,16 +48,29 @@ You can check out the extensive EDA report for this dataset which I have generat
 
 
 ## Model Building ##
-After seperating the diagnosis column as the target/label, we seperate the dataset ub
-I also split the data into train and tests sets with a test size of 20%.
+I split the data into train and tests sets with a test size of 20%.
 
-I tried three different models and evaluated them using Mean Absolute Error. I chose MAE because it is relatively easy to interpret and outliers aren’t particularly bad in for this type of model.
+Then using the **StratifiedShuffleSplit** function from the sklearn.model_selection library, I make sure there are similar ratios of the ***Diagnosis*** column in both the test and train data sets.
 
-I tried three different models:
+After shuffling the data, I seperated the diagnosis column as the target/label obtaining features and labels of the dataset.
 
-Multiple Linear Regression – Baseline for the model
-DecisionTree Regression – Because of the sparse data from the many categorical variables, I thought a normalized regression like DecisionTree would be effective.
-Random Forest – Again, with the sparsity associated with the data, I thought that this would be a good fit.
+Finally,before using the train data to train the and build the neural network, I standardize the features by using the StandardScaler function.
+
+#### Setting up layers for the neural network ####
+
+After Initializing the neural network model,I define 3 layers for my model as follows:
+1. 1st layer as the **input** layer - This layer consists of 30 neurons since we have 30 features for our dataset. Important to Flatten it since it requires a single dimension array  
+2. the middle **hidden** layer - Can have random number of neurons and use the **'ReLU'** activation function since I dont want to activate all the neurons at the same time. 
+3. Finally, the **output** layer - Number of neurons must be equal to the number of output classes. In our case this is **2** since we want to classify the tumor either as 'Benign' or 'Malignant'. For my activation function I use the **Sigmoid function** which is th esame as Logistic Regression.
+[Note: You can do more research on different activation functions and also play around with the number of layers. Although this might make your model more susceptible to overfitting.]    
+#### Compiling the neural network  ####
+
+After setting up the layers, I compiled my model as follows:
+* For the Optimizer I pick the **'adam's optimization algorithm** as it uses the principle of stochastic gradient descent.
+* For my loss function I chose **sparse_categorical_crossentropy** because the labels are labeled as integers.
+* Finally I choose **accuracy** for metrics.
+
+
 
 ## Model Performance ##
 The Random Forest Regression model outperformed the other approaches on the test and validation sets.I found out the Mean and the Standard Deviation for all the three models. This basically gives us an image by how much percentage can the predictions be off the actual prediction.
