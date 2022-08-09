@@ -63,6 +63,7 @@ After Initializing the neural network model,I define 3 layers for my model as fo
 2. the middle **hidden** layer - Can have random number of neurons and use the **'ReLU'** activation function since I dont want to activate all the neurons at the same time. 
 3. Finally, the **output** layer - Number of neurons must be equal to the number of output classes. In our case this is **2** since we want to classify the tumor either as 'Benign' or 'Malignant'. For my activation function I use the **Sigmoid function** which is th esame as Logistic Regression.
 [Note: You can do more research on different activation functions and also play around with the number of layers. Although this might make your model more susceptible to overfitting.]    
+
 #### Compiling the neural network  ####
 
 After setting up the layers, I compiled my model as follows:
@@ -70,13 +71,24 @@ After setting up the layers, I compiled my model as follows:
 * For my loss function I chose **sparse_categorical_crossentropy** because the labels are labeled as integers.
 * Finally I choose **accuracy** for metrics.
 
+#### Training the model ####
 
+After setting up the layers and compiling the model, we finally use the processed training data to train our NN-model with **epochs** set at 10. This is the number of times we send our data through the model.
 
-## Model Performance ##
-The Random Forest Regression model outperformed the other approaches on the test and validation sets.I found out the Mean and the Standard Deviation for all the three models. This basically gives us an image by how much percentage can the predictions be off the actual prediction.
-* **Multiple Linear Regression:**   Mean- 5.028337074958086 , Standard Deviation- 1.056869119278954
-* **Decision Tree Regression:** Mean- 4.256820741921791,
-   Standard Deviation- 1.1575140416039331
-* **Random Forest Regression:** Mean- 3.304827981052571, 
-   Standard Deviation- 0.6490112395533792 <br />
-The results were pretty good since in the worst case scenario,our predictions would only be off by a meager 3.65%.
+## Visualizing Accuracy and Loss ##
+
+The first epoch gave us a **accuracy of 60%** and a **loss of 70%** which is not the best, but after a few more runs the final epoch gave us a **accuracy of 98%** and a **loss of 11%** which is an amazing result. This can improve even more if the model is trained carefully with  more layers.
+
+I have plotted the **model accuracy** and **model loss** graphs for us to visualize it and get a better understanding of it.
+
+![](model_accuracy.png "Model Accuracy ")
+
+![](model_loss.png "Model Loss ")
+
+## Testing the model on the test data ##
+* Finally we pass the test data through the model to evaluate the model and make sure there is no overfitting or underfitting.
+* It gives us a **loss of 13%** and **accuracy of almost 96.5%** which is pretty good.
+
+## Defining a predictor function ##
+The last step of this project is to define a predictor function that takes in any input data and utilizes this model to identify the type of tumor and give us more room for prevention. <br /> 
+**As we are aware that prevention is better than cure, this model takes us a step closer towards that prevention.** 
