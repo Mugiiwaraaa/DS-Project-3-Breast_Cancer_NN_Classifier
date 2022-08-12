@@ -1,5 +1,5 @@
 # DS-Project-3-Breast_Cancer_NN_Classifier
-Classifying whether the tumor is 'Benign' or 'Malignant' . 
+Classifying the primary cause of Breast Cancer by identifying if the tumor is 'Benign' or 'Malignant' . 
 
 * Designed a model that predicts the chances of a patient having **Breast Cancer**. This is a small step towards how we can detect early symptoms of Breast Cancer which gives us a better chance of prevention.
 * Dataset - This particular dataset can be imported from the sklearn.datasets library or you can download it from the kaggle resource given below.
